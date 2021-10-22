@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_122912) do
+ActiveRecord::Schema.define(version: 2021_10_15_032150) do
+
+  create_table "bookposts", charset: "utf8mb4", force: :cascade do |t|
+    t.string "content"
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bookposts_on_user_id"
+  end
+
+  create_table "likes", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "bookpost_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bookpost_id"], name: "index_likes_on_bookpost_id"
+    t.index ["user_id", "bookpost_id"], name: "index_likes_on_user_id_and_bookpost_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -20,4 +39,7 @@ ActiveRecord::Schema.define(version: 2021_10_13_122912) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "bookposts", "users"
+  add_foreign_key "likes", "bookposts"
+  add_foreign_key "likes", "users"
 end

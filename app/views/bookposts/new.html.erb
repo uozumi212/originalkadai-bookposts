@@ -1,0 +1,26 @@
+<body style="background: #dbffed; ">
+  
+</body>
+<div class="text-center">
+  <h1>投稿ページ</h1>
+ <div class="row">
+  
+    <div class="col-sm-6 offset-sm-3">
+  
+      <%= form_with(model: @bookpost) do |f| %>
+      <%= render "layouts/error_messages", model: f.object %>
+  
+        <div class="mb-3">
+          <%= f.label :title, 'おすすめ本のタイトル' %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :content, 'レビュー' %>
+          <%= f.text_area :content, class: 'form-control' %>
+        </div>
+        <%= f.submit "投稿", class: "btn btn-primary" %>
+        <% end %>
+      
+    </div>
+  </div>
+</div>
