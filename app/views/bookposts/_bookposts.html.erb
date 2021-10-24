@@ -22,7 +22,7 @@
         <div>
         <% if current_user == bookpost.user %>
          <%= link_to "削除", bookpost, method: :delete, data: { confirm: "削除してもいいですか？" }, class: "btn btn-danger btn-sm" %>
-        
+         <%= render 'likes/like_button', bookpost: bookpost %>
          <% end %>
        </div>
       </li>

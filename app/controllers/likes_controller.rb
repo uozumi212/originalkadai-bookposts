@@ -2,6 +2,7 @@ class LikesController < ApplicationController
   before_action :require_user_logged_in, only: [:create, :destroy]
   
   
+    
   def create
     bookpost = Bookpost.find(params[:like_id])
     current_user.like(bookpost)
