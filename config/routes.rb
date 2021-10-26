@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get "login", to: "sessions#new"
     post "login", to: "sessions#create"
     delete "logout", to: "sessions#destroy"
-    get "bookposts/new", to: "bookposts#new"
+    
    
     get "signup", to: "users#new"
      

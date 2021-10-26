@@ -7,15 +7,14 @@
       </button>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <% if logged_in? %>
-       <div class="btn-group">
-        <ul class="navbar-nav">
-        <li class="ms-3"><%= link_to '投稿一覧', bookposts_path,  class: 'nav-link' %></li>
-         <li class="ms-3"><%= link_to '投稿ページ', new_bookpost_path,  class: 'nav-link' %></li>
-          <li class="ms-3"><%= link_to 'いいね一覧ページ', likes_user_path(@user), class: 'nav-link' %></li>
-         <li class="ms-3"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
-         
-         </ul>
+          <% if logged_in? %>
+         <div class="btn-group">
+           <ul class="navbar-nav">
+            <li class="ms-3"><%= link_to '投稿一覧', bookposts_path,  class: 'nav-link' %></li>
+            <li class="ms-3"><%= link_to '投稿ページ', new_bookpost_path,  class: 'nav-link' %></li>
+            <li class="ms-3"><%= link_to 'いいね一覧ページ', likes_user_path(@user), class: 'nav-link' %></li>
+            <li class="ms-3"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
+           </ul>
         
          </div>
          <% else %>
@@ -25,6 +24,6 @@
            </ul>
          <% end %>
        </div>
-     </div>
-   </nav>
+    </div>
+  </nav>
 </header>

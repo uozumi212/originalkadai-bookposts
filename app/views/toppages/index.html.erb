@@ -1,4 +1,6 @@
-<% if logged_in? %>
+<body style="background: #dbffed;">
+
+ <% if logged_in? %>
   <div class="row">
     <aside class="col-sm-4">
       
@@ -11,9 +13,7 @@
       <%= render 'bookposts/bookposts', bookposts: @bookposts %>
     </div>
   </div>
- <% else %>
+</body>
+  <% else %>
+ <% end %>
 
-   <body style="background: #dbffed;">
-   
-   </body>
-<% end %>

@@ -1,7 +1,5 @@
 <body style="background: #dbffed; ">
-  
-</body>
-<% if users.any? %>
+ <% if users.any? %>
   <ul class="list-unstyled">
       <% users.each do |user| %>
       <li class="mb-3 d-flex">
@@ -17,5 +15,6 @@
       </li>
     <% end %>
   </ul>
+</body>
   <%== pagy_bootstrap_nav(@pagy) %>
 <% end %>
