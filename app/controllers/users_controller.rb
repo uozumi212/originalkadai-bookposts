@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   
   def index
     @pagy, @users = pagy(User.order(id: :desc), items: 25)
+    @user = current_user
   end
 
   def show
@@ -25,7 +26,6 @@ class UsersController < ApplicationController
       render :new
     end
   end
-  
   
   def likes
     @user = User.find(params[:id])

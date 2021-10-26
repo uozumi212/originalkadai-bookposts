@@ -19,15 +19,15 @@
             <p><%=  bookpost.content %></p>
           </div>
         <div>
-         <% if bookpost.user == current_user %>
+         <% if current_user == bookpost.user %>
          <%= link_to "削除", bookpost, method: :delete, data: { confirm: "削除してもいいですか？" }, class: "btn btn-danger w-40" %>
-         
+          
        </div>
        <div>
-       <% else bookpost.user == current_user %>
-       <%= render 'likes/like_button', bookpost: bookpost %>
-       
+        <% else bookpost.user == current_user %>
+        <%= render 'likes/like_button', bookpost: bookpost %>
        <% end %>
+        
        
        </div>
        
