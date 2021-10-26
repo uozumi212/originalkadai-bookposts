@@ -1,41 +1,33 @@
-<body style="background: #dbffed;">
-  
-</body>
 <div class="text-center">
-  <h1>会員登録</h1>
-</div>
-
-  <body class="row">
-    <body class="background background-color: #eafff4">
-    </body>
-  </body>
-   
-    <div class="col-sm-6 offset-sm-3">
-  
-      <%= form_with(model: @user) do |f| %>
-      
+    <h1>会員登録</h1>
+   <body style="background: #dbffed;"> 
+     <div class="col-sm-6 offset-sm-3">
+         
+       <%= form_with(model: @user) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
   
         <div class="mb-3">
           <%= f.label :name, '氏名' %>
           <%= f.text_field :name, class: 'form-control' %>
         </div>
 
-      <div class="mb-3">
-        <%= f.label :email, 'メールアドレス' %>
-        <%= f.email_field :email, class: 'form-control' %>
-      </div>
+        <div class="mb-3">
+          <%= f.label :email, 'メールアドレス' %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+ 
+        <div class="mb-3">
+          <%= f.label :password, 'パスワード' %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
 
-      <div class="mb-3">
-        <%= f.label :password, 'パスワード' %>
-        <%= f.password_field :password, class: 'form-control' %>
-      </div>
+        <div class="mb-3">
+          <%= f.label :password_confirmation, '確認' %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
 
-      <div class="mb-3">
-        <%= f.label :password_confirmation, '確認' %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
-      </div>
-
-      <%= f.submit '会員登録', class: 'btn btn-primary w-100' %>
-      
-    <% end %>
-  </div>
+        <%= f.submit '会員登録', class: 'btn btn-primary w-100' %>
+        <% end %>
+     </div>
+  </body>
+</div>

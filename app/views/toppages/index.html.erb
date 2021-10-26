@@ -1,20 +1,15 @@
-<% if logged_in? %>
-  <div class="row">
-    <aside class="col-sm-4">
-      
-      <%= form_with(model: @bookpost) do |f| %>
-        
-       
-      <% end %>
-    </aside>
-    <div class="col-sm-8 ">
-      <%= render 'bookposts/bookposts', bookposts: @bookposts %>
-    </div>
-  </div>
- <% else %>
+<body style="background: #dbffed;">
+  </body>
+  <% if logged_in? %>
+   <div class="row">
+     <aside class="col-sm-4">
+       <%= form_with(model: @bookpost) do |f| %>
+        <% end %>
+     </aside>
+       <div class="col-sm-8 ">
+         <%= render 'bookposts/bookposts', bookposts: @bookposts %>
+       </div>
+   </div>
+    <% else %>
 
-   <body style="background: #dbffed;">
-    
-   </body>
-   
 <% end %>
