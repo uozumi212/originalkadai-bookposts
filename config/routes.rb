@@ -10,12 +10,12 @@ Rails.application.routes.draw do
    
     get "signup", to: "users#new"
      
-    resources :users, only: [:index, :show, :new, :create, :destroy] do 
+    resources :users, only: [:index, :show, :new, :create, :destroy] do
         member do
-           get :likes
-       end
+            get :likes
+        end
     end
    
-    resources :bookposts, only: [:index, :show, :new, :create, :destroy] 
+    resources :bookposts, only: [:index, :show, :new, :create, :destroy]
     resources :likes, only: [:create, :destroy]
 end

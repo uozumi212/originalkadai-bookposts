@@ -1,14 +1,13 @@
 <body style="background: #dbffed;">
-    <div style="text-align: center;">
-     </div>
+    
 </body>
 <% if bookposts.any? %>
-  <ul class="list-unstyled mt-2">
+  <div class="text-break">
     <% bookposts.each do |bookpost| %>
-      <li class="d-flex">
+      
         
         <div>
-          <div>
+          <div class="display-flex">
             <%= link_to bookpost.user.name, bookpost_path(bookpost.user), class: "text-decoration-none" %> <span class="text-muted">posted at <%= bookpost.created_at %></span>
           </div>
             <div> 
@@ -20,13 +19,22 @@
             <p><%=  bookpost.content %></p>
           </div>
         <div>
-        <% if current_user == bookpost.user %>
-         <%= link_to "削除", bookpost, method: :delete, data: { confirm: "削除してもいいですか？" }, class: "btn btn-danger btn-sm" %>
-         <%= render 'likes/like_button', bookpost: bookpost %>
-         <% end %>
+         <% if bookpost.user == current_user %>
+         <%= link_to "削除", bookpost, method: :delete, data: { confirm: "削除してもいいですか？" }, class: "btn btn-danger w-40" %>
+         
        </div>
-      </li>
+       <div>
+       <% else bookpost.user == current_user %>
+       <%= render 'likes/like_button', bookpost: bookpost %>
+       
+       <% end %>
+       
+       </div>
+       
+      </div>
     <% end %>
   </ul>
-  <%== pagy_bootstrap_nav(@pagy) %>
+  <div class="offset-sm-2">
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
 <% end %>

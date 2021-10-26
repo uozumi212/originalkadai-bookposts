@@ -4,7 +4,7 @@ class BookpostsController < ApplicationController
     
   def index
     @pagy, @bookposts = pagy(Bookpost.order(id: :desc), items: 25)
-    
+  
   end
   
   def show
@@ -13,26 +13,29 @@ class BookpostsController < ApplicationController
   
   def new
     @bookpost = Bookpost.new
+    @user = current_user
   end
 
   def create
+    @user = current_user
     @bookpost = current_user.bookposts.build(bookpost_params)
     if @bookpost.save
       flash[:success] = '投稿しました。'
-      redirect_to @bookpost
-    else
+      redirect_to root_url
+    else 
       @pagy, @bookposts = pagy(current_user.bookposts.order(id: :desc))
       flash.now[:danger] = '投稿に失敗しました。'
-      render 'toppages/index'
+      render :new
     end
   end
 
   def destroy
-    
     @bookpost.destroy
     flash[:danger] = "投稿を削除しました。"
     redirect_to @bookpost
   end
+
+  
 
   private
 

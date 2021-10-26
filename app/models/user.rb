@@ -5,13 +5,15 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
     has_secure_password
     
-    has_many :bookposts
-    has_many :likes
+    has_many :bookposts, dependent: :destroy
+    has_many :likes, dependent: :destroy
     has_many :likings, through: :likes, source: :bookpost
     
     
     def like(other_bookpost)
-            self.likes.find_or_create_by(bookpost_id: other_bookpost.id)
+        unless self == other_bookpost
+        self.likes.find_or_create_by(bookpost_id: other_bookpost.id)
+        end
     end
     
     def unlike(other_bookpost)
