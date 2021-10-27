@@ -4,7 +4,7 @@
      <div class="col-sm-6 offset-sm-3">
        <body style="background: #dbffed;">
           <%= form_with(model: @bookpost) do |f| %>
-          
+        <%= render 'layouts/error_messages', model: f.object %>
          
           <div class="mb-3">
             <%= f.label :title, 'おすすめ本のタイトル' %>
