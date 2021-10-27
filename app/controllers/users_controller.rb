@@ -4,11 +4,13 @@ class UsersController < ApplicationController
   def index
     @pagy, @users = pagy(User.order(id: :desc), items: 25)
     @user = current_user
+  
   end
 
   def show
     @user = User.find(params[:id])
     @pagy, @bookposts = pagy(@user.bookposts.order(id: :desc)) 
+    
   end
 
   def new

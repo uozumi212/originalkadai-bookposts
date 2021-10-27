@@ -4,7 +4,7 @@ class BookpostsController < ApplicationController
     
   def index
     @pagy, @bookposts = pagy(Bookpost.order(id: :desc), items: 25)
-  
+    
   end
   
   def show
