@@ -5,7 +5,7 @@
  <% end %>
  <% else %>
    <%= form_with(model: current_user.likes.build) do |f| %>
-    <%= hidden_field_tag :like_id, bookpost.id %>
+    <%= hidden_field_tag :like_id, bookpost.id,id: "like_#{bookpost.id}" %>
     <%= f.submit "いいねボタン", class: "btn btn-primary btn-sm" %>
   <% end %>
 <% end %>
