@@ -1,7 +1,7 @@
 <% if bookposts.any? %>
      <% bookposts.each do |bookpost| %>
       
-      <div class="display-flex">
+      
             <div class="text-primary"><h3>本のタイトル</h3>
                <p><%= bookpost.title %></p>
             </div>
@@ -22,6 +22,5 @@
          <div class="offset-sm-2">
            <%== pagy_bootstrap_nav(@pagy) %>
          </div>
-      </div>
- </div>
+      
 <% end %>
