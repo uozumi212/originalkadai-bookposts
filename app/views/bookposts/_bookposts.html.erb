@@ -1,36 +1,27 @@
-
 <% if bookposts.any? %>
-  <div class="text-break">
      <% bookposts.each do |bookpost| %>
       
-        <body style="background: #dbffed;">
-    
-        </body>
-        <div>
-          <div class="display-flex">
-            
-          </div>
-            <div> 
-             <font size="4" color="black">本のタイトル</font>
-             <p><%= bookpost.title %></p>
+      <div class="display-flex">
+            <div class="text-primary"><h3>本のタイトル</h3>
+               <p><%= bookpost.title %></p>
             </div>
-          <div>
-            <font size="4" color="black">レビュー</font>
-            <p><%=  bookpost.content %></p>
+          
+          <div class= "text-primary"><h4>レビュー</h4>
+             <p><%=  bookpost.content %></p>
           </div>
          <div>
-          <% if current_user == bookpost.user %>
-          <%= link_to "削除", bookpost, method: :delete, data: { confirm: "削除してもいいですか？" }, class: "btn btn-danger w-40" %>
-          
-       </div>
-       <div>
-          <% else bookpost.user == current_user %>
-          <%= render 'likes/like_button', bookpost: bookpost %>
+            <% if current_user == bookpost.user %>
+            <%= link_to "削除", bookpost, method: :delete, data: { confirm: "削除してもいいですか？" }, class: "btn btn-danger w-40" %>
+          </div>
+         <div>
+            <% else bookpost.user == current_user %>
+            <%= render 'likes/like_button', bookpost: bookpost %>
+            <% end %>
+         </div>
            <% end %>
-       </div>
-         <% end %>
-        <div class="offset-sm-2">
-          <%== pagy_bootstrap_nav(@pagy) %>
-        </div>
+         <div class="offset-sm-2">
+           <%== pagy_bootstrap_nav(@pagy) %>
+         </div>
+     </div>
   </div>
 <% end %>

@@ -1,10 +1,11 @@
 <div class="text-center">
    <h1>投稿ページ</h1>
+     
    <div class="row">
-     <div class="col-sm-6 offset-sm-3">
-       <body style="background: #dbffed;">
+     <div class="col-sm-6 offset-sm-3" >
+       
           <%= form_with(model: @bookpost) do |f| %>
-        <%= render 'layouts/error_messages', model: f.object %>
+          <%= render 'layouts/error_messages', model: f.object %>
          
           <div class="mb-3">
             <%= f.label :title, 'おすすめ本のタイトル' %>
@@ -18,9 +19,11 @@
             <% end %>
         
           <div class="text-bottom">
-            <font size="5"  color="white"><p>タイトルは30文字,レビューは200文字以内に収めてください</p></font>
+              <div class=  "text-black"><p>タイトルは30文字,レビューは200文字以内に収めてください</p>
+                         
+              </div>
           </div>
-       </body>
-     </div>
-   </div>
-</div>
+      </div>
+    </div>
+  </div>
+
