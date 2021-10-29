@@ -20,6 +20,7 @@
                 </div>
                  <% else %>
                   <ul class="navbar-nav">
+                   <li class="nav-item"><%= link_to 'ホーム', root_path, class: 'nav-link' %></li>
                    <li class="nav-item"><%= link_to '会員登録', signup_path, class: 'nav-link' %></li>
                    <li class="nav-item"><%= link_to 'ログイン', bookposts_path, class: 'nav-link' %></li>
                    </ul>

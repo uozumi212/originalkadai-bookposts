@@ -2,16 +2,16 @@
      <% bookposts.each do |bookpost| %>
       
       
-            <div class="text-primary"><h3>本のタイトル</h3>
+            <div class="m-2 text-primary "><h3>本のタイトル</h3>
                <p><%= bookpost.title %></p>
             </div>
           
-          <div class= "text-primary"><h4>レビュー</h4>
+          <div class= "m-2 text-primary"><h4>本のレビュー</h4>
              <p><%=  bookpost.content %></p>
           </div>
          <div>
             <% if current_user == bookpost.user %>
-            <%= link_to "削除", bookpost, method: :delete, data: { confirm: "削除してもいいですか？" }, class: "btn btn-danger w-40" %>
+            <%= link_to "削除", bookpost, method: :delete, data: { confirm: "削除してもいいですか？" }, class: "btn btn-danger m-2  w-40" %>
           </div>
          <div>
             <% else bookpost.user == current_user %>

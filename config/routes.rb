@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-    root to:"bookposts#index"
-    
+    root to:"toppages#index"
    
     
     get "login", to: "sessions#new"
